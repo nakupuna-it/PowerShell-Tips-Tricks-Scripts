@@ -1,13 +1,12 @@
-################################################################################
-################################################################################
-##### RUN EVERYTHING HERE IN AN ADMIN POWERSHELL OR POWERSHELL ISE SESSION #####
-################################################################################
-################################################################################
+!================================================================================!
+!================================================================================!
+!===== RUN EVERYTHING HERE IN AN ADMIN POWERSHELL OR POWERSHELL ISE SESSION =====!
+!================================================================================!
+!================================================================================!
 
-
-###############################################
-#### POWERSHELL ENVIRONMENT SETUP COMMANDS ####
-###############################################
+<=================================================>
+<===== POWERSHELL ENVIRONMENT SETUP COMMANDS =====>
+<=================================================>
 #SET EXECUTION POLICY FIRST. ALLOWS YOU TO RUN UNSIGNED SCRIPTS (LIKE THE ONES YOU'D BE WRITING YOURSELF)
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 
@@ -25,10 +24,11 @@ Install-Module -Name ExchangeOnlineManagement
 Install-Module -Name MicrosoftTeams -Force -AllowClobber
 Install-Module -Name AzureAD
 Install-Module -Name Microsoft.Online.SharePoint.PowerShell
+Install-Module -Name MSOnline
 
-######################################################
-##### POWERSHELL ENVIRONMENT CONNECTION COMMANDS #####
-######################################################
+<======================================================>
+<===== POWERSHELL ENVIRONMENT CONNECTION COMMANDS =====>
+<======================================================>
 #TEAMS
 Connect-MicrosoftTeams -TeamsEnvironmentName TeamsGCCH
 
@@ -41,10 +41,15 @@ Connect-AzureAD -AzureEnvironmentName AzureUSGovernment
 #SHAREPOINT
 Connect-SPOService -Url https://nakupuna-admin.sharepoint.us/
 
+#M365 ADMIN
+Connect-MsolService -AzureEnvironment USGovernment
 
-#############################
-##### AZURE AD COMMANDS #####
-#############################
+Connect-MgGraph -Environment USGov
+
+
+<=============================>
+<===== AZURE AD COMMANDS =====>
+<=============================>
 #GETS MOST AZURE AD PROPERTIES FOR A SPECIFIC USER
 Get-AzureADUser -ObjectId "<EMAIL ADDRESS GOES HERE BETWEEN QUOTES>"| select *
 
@@ -56,8 +61,5 @@ Get-InstalledModule -Name "MicrosoftTeams"
 
 #GETS THE VERSION OF POWERSHELL INSTALLED
 $PSVersionTable.PSVersion
-
-#GETS A REGISTRY VALUE
-Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{AC76BA86-1033-FFFF-7760-BC15014EA700}' -Name "DisplayVersion"
 
 

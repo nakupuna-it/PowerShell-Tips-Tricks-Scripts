@@ -25,6 +25,7 @@ Install-Module -Name MicrosoftTeams -Force -AllowClobber
 Install-Module -Name AzureAD
 Install-Module -Name Microsoft.Online.SharePoint.PowerShell
 Install-Module -Name MSOnline
+Install-Module -Name Az -Repository PSGallery -Force
 
 <======================================================>
 <===== POWERSHELL ENVIRONMENT CONNECTION COMMANDS =====>
@@ -44,7 +45,8 @@ Connect-SPOService -Url https://nakupuna-admin.sharepoint.us/
 #M365 ADMIN
 Connect-MsolService -AzureEnvironment USGovernment
 
-Connect-MgGraph -Environment USGov
+#AZURE
+Connect-AzAccount
 
 
 <=============================>

@@ -8,3 +8,5 @@ $Devices = Get-AzureADDevice -All:$true | Where {($_.ApproximateLastLogonTimeSta
 foreach ($Device in $Devices) {
 Remove-AzureADDevice -ObjectId $Device.ObjectId
 }
+
+#WIll need to automate this one day. Here's a link https://learn.microsoft.com/en-us/entra/id-governance/identity-governance-automation

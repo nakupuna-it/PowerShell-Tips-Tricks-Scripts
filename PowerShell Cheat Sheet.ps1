@@ -46,7 +46,7 @@ Connect-SPOService -Url https://nakupuna-admin.sharepoint.us/
 Connect-MsolService -AzureEnvironment USGovernment
 
 #AZURE
-Connect-AzAccount
+Connect-AzAccount -Environment AzureUSGovernment
 
 
 <=============================>
